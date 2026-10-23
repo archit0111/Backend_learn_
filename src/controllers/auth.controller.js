@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken")
 const userModel = require("../models/user.model")
-const bcrypt = require("bcryptjs")
 
 
 async function userRegisterController(req,res){
@@ -30,7 +29,7 @@ async function userLoginController(req,res){
 
     const user = await userModel.findOne({email}).select("+password")
     if(!user){
-        return res.status(401).json({message:"Email////// or password is Invalid!"})
+        return res.status(401).json({message:"Email or password is Invalid!"})
     }
     const isValidPass = password===user.password
 
