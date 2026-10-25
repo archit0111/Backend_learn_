@@ -5,7 +5,8 @@ const ledgerSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"account",
         required:[true,"Ledger must be assosiated with an account"],
-        immutable:true
+        immutable:true,
+        index:true
     },
     amount:{
         type:Number,
@@ -39,6 +40,9 @@ ledgerSchema.pre("findByIdAndUpdate",preventLedgerModification)
 ledgerSchema.pre("updateMany",preventLedgerModification)
 ledgerSchema.pre("deleteOne",preventLedgerModification)
 ledgerSchema.pre("deleteMany",preventLedgerModification)
+ledgerSchema.pre("findOneAndDelete",preventLedgerModification)
+ledgerSchema.pre("findByIdAndDelete",preventLedgerModification)
+ledgerSchema.pre("remove",preventLedgerModification)
 
 const ledgerModel = mongoose.model("ledger",ledgerSchema)
 
