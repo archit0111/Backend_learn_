@@ -10,7 +10,7 @@ app.use(cookieParser())
 
 
 app.use("/api/auth",authRouter)
-app.use("/api/account",accountRouter)
+app.use("/api/accounts",accountRouter)
 
 
 module.exports = app
