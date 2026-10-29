@@ -9,6 +9,9 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 
+app.use("/",(req,res)=>{
+    res.send("Welcome to the Ledger API. Please use the appropriate endpoints for authentication, accounts, and transactions.")
+})
 
 app.use("/api/auth",authRouter)
 app.use("/api/accounts",accountRouter)
