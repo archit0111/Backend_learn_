@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+// User Schema for varifying incomming user data and creating user account in database
 
 const userSchema = mongoose.Schema({
     email:{

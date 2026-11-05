@@ -37,7 +37,14 @@ async function userLoginController(req,res){
     if(!isValidPass){
         return res.status(401).json({message:"Email or password is Invalid!"})
     }
+
+    //creating token for authentication
+
+
     const token = jwt.sign({userId:user._id},process.env.JWT_SECRET,{expiresIn : "3d"})
+
+    //Store it in cookie
+
     res.cookie("token",token)
     res.status(200).json({user:{
         _id:user._id,

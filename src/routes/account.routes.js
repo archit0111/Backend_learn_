@@ -4,6 +4,7 @@ const middleware = require("../middleware/auth")
 const accountController = require("../controllers/account.controller")
 
 
+//protected routes for account 
 
 router.post("/",middleware.authMiddleware, accountController.createAcccountController)
 router.get("/",middleware.authMiddleware, accountController.getUserAccountsController)
